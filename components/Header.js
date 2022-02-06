@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useTheme } from 'next-themes'
 import PropTypes from 'prop-types'
+import { ClientOnly } from '@/components'
 
 export default function Header() {
   return (
@@ -23,7 +24,9 @@ export default function Header() {
           <NavItem href='/contact' label='Contact' />
         </div>
 
-        <ThemeToggle />
+        <ClientOnly>
+          <ThemeToggle />
+        </ClientOnly>
       </nav>
     </header>
   )
@@ -57,6 +60,8 @@ NavItem.propTypes = {
 function ThemeToggle() {
   const { theme, setTheme } = useTheme()
 
+  console.log(theme)
+
   const toggleTheme = () => {
     if (theme === 'dark') {
       setTheme('light')
@@ -68,7 +73,13 @@ function ThemeToggle() {
 
   return (
     <div>
-      <input type='checkbox' className='checkbox' id='checkbox' onChange={toggleTheme} />
+      <input
+        type='checkbox'
+        className='checkbox'
+        id='checkbox'
+        onChange={toggleTheme}
+        checked={theme === 'dark'}
+      />
       <label htmlFor='checkbox' className='label'>
         <span className='moon'>&#9790;</span>
         <span className='sun'>&#9728;</span>
