@@ -1,0 +1,4 @@
+// Fix `Unknown at rule @tailwindcss(unknownAtRules)` in global.css
+{
+  "css.lint.unknownAtRules": "ignore"
+}

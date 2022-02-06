@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["*"]
+    },
+    "moduleResolution": "node"
+  },
+
+  "typeAcquisition": {
+    "exclude": ["source-map"]
+  }
+}
+
+/*
+	`typeAcquisition` is here to prevent a strange `types not found` error
+	https://stackoverflow.com/questions/63124462/how-to-fix-file-node-modules-dotenv-types-not-found-error-coming-from-j
+*/
