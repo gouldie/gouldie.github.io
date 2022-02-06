@@ -53,7 +53,7 @@ NavItem.propTypes = {
   label: PropTypes.string.isRequired
 }
 
-// https://codepen.io/AmirthaShankari/pen/eYpmjmx
+// https://codepen.io/PaulinaSurazynska/pen/bGVpBOb
 function ThemeToggle() {
   const { theme, setTheme } = useTheme()
 
@@ -70,7 +70,7 @@ function ThemeToggle() {
     <div>
       <input type='checkbox' className='checkbox' id='checkbox' onClick={toggleTheme} />
       <label htmlFor='checkbox' className='label'>
-        <span className='moon'>&#9789;</span>
+        <span className='moon'>&#9790;</span>
         <span className='sun'>&#9728;</span>
         <div className='ball' />
       </label>
