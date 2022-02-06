@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }) {
 }
 
 MyApp.propTypes = {
-  Component: PropTypes.node.isRequired,
+  Component: PropTypes.any.isRequired,
   pageProps: PropTypes.object
 }
 
