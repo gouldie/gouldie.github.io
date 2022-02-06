@@ -1,12 +1,11 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useTheme } from 'next-themes'
+import PropTypes from 'prop-types'
 
 export default function Header() {
-  const { theme, setTheme } = useTheme()
-
   return (
-    <header className='my-container pt-8'>
+    <header className='my-container pt-8 pb-16'>
       <nav className='flex justify-center items-center'>
         <a href='#skip' className='sr-only'>
           Skip to content
@@ -24,13 +23,7 @@ export default function Header() {
           <NavItem href='/contact' label='Contact' />
         </div>
 
-        <button
-          onClick={() => {
-            setTheme(theme === 'dark' ? 'light' : 'dark')
-          }}
-        >
-          Toggle theme
-        </button>
+        <ThemeToggle />
       </nav>
     </header>
   )
@@ -52,5 +45,35 @@ function NavItem({ href, label }) {
         </span>
       </a>
     </Link>
+  )
+}
+
+NavItem.propTypes = {
+  href: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired
+}
+
+// https://codepen.io/AmirthaShankari/pen/eYpmjmx
+function ThemeToggle() {
+  const { theme, setTheme } = useTheme()
+
+  const toggleTheme = () => {
+    if (theme === 'dark') {
+      setTheme('light')
+      return
+    }
+
+    setTheme('dark')
+  }
+
+  return (
+    <div>
+      <input type='checkbox' className='checkbox' id='checkbox' onClick={toggleTheme} />
+      <label htmlFor='checkbox' className='label'>
+        <span className='moon'>&#9789;</span>
+        <span className='sun'>&#9728;</span>
+        <div className='ball' />
+      </label>
+    </div>
   )
 }
