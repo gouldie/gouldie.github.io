@@ -68,7 +68,7 @@ function ThemeToggle() {
 
   return (
     <div>
-      <input type='checkbox' className='checkbox' id='checkbox' onClick={toggleTheme} />
+      <input type='checkbox' className='checkbox' id='checkbox' onChange={toggleTheme} />
       <label htmlFor='checkbox' className='label'>
         <span className='moon'>&#9790;</span>
         <span className='sun'>&#9728;</span>
