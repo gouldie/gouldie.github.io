@@ -59,7 +59,7 @@ export default function Contact() {
       <hr className='w-24 mb-12' />
 
       <p className='mb-8'>
-        Want to chat about a project, or have an enquiry? Send me a message directly here.
+        Want to get in touch, talk about a project or just say hi? Send me a message directly here.
       </p>
 
       <form className='max-w-lg mx-auto' onSubmit={onSubmit}>
