@@ -40,7 +40,7 @@ function NavItem({ href, label }) {
     <Link passHref href={href}>
       <a>
         <span
-          className={`py-1.5 px-2.5 rounded-lg hover:bg-gray-800 ${
+          className={`py-1.5 px-2.5 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 ${
             !isSelected ? 'text-gray-500' : ''
           }`}
         >
@@ -59,8 +59,6 @@ NavItem.propTypes = {
 // https://codepen.io/PaulinaSurazynska/pen/bGVpBOb
 function ThemeToggle() {
   const { theme, setTheme } = useTheme()
-
-  console.log(theme)
 
   const toggleTheme = () => {
     if (theme === 'dark') {
