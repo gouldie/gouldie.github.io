@@ -2,7 +2,7 @@ import { useTheme } from 'next-themes'
 import { Layout, ClientOnly } from '@/components'
 
 export default function Home() {
-  const { theme } = useTheme()
+  const { resolvedTheme, ...other } = useTheme()
 
   return (
     <Layout>
@@ -26,7 +26,7 @@ export default function Home() {
             >
               <img
                 className='w-8'
-                src={`/linkedin-${theme === 'dark' ? 'dark' : 'light'}.png`}
+                src={`/linkedin-${resolvedTheme === 'dark' ? 'dark' : 'light'}.png`}
                 alt='view my linkedin profile'
               />
             </a>
@@ -34,7 +34,7 @@ export default function Home() {
             <a href='https://github.com/gouldie' target='_blank' rel='noreferrer noopener'>
               <img
                 className='w-8'
-                src={`/github-${theme === 'dark' ? 'dark' : 'light'}.png`}
+                src={`/github-${resolvedTheme === 'dark' ? 'dark' : 'light'}.png`}
                 alt='view my github profile'
               />
             </a>

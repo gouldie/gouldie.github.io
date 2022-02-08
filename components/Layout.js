@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { Header } from '@/components'
 
 export default function Layout({ children, ...customMeta }) {
   const router = useRouter()
@@ -32,7 +31,6 @@ export default function Layout({ children, ...customMeta }) {
         <meta name='twitter:description' content={meta.description} />
         {/* <meta name='twitter:image' content={meta.image} /> */}
       </Head>
-      <Header />
       <main id='skip' className='my-container pb-8'>
         {children}
       </main>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export default function ClientOnly({ children, width = '40px' }) {
+export default function ClientOnly({ children }) {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -8,7 +8,7 @@ export default function ClientOnly({ children, width = '40px' }) {
   }, [])
 
   if (!mounted) {
-    return <div style={{ width }} />
+    return null
   }
 
   return children

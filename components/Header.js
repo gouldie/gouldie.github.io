@@ -18,7 +18,7 @@ export default function Header() {
             </a>
           </Link>
           <div className='flex items-center md:order-2'>
-            <ClientOnly width='40px'>
+            <ClientOnly>
               <ThemeToggle />
             </ClientOnly>
             <button
@@ -99,10 +99,10 @@ NavItem.propTypes = {
 
 // https://codepen.io/PaulinaSurazynska/pen/bGVpBOb
 function ThemeToggle() {
-  const { theme, setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
 
   const toggleTheme = () => {
-    if (theme === 'dark') {
+    if (resolvedTheme === 'dark') {
       setTheme('light')
       return
     }
@@ -117,7 +117,7 @@ function ThemeToggle() {
         className='checkbox'
         id='checkbox'
         onChange={toggleTheme}
-        checked={theme === 'dark'}
+        checked={resolvedTheme === 'dark'}
       />
       <label htmlFor='checkbox' className='label'>
         <span className='moon'>&#9790;</span>
