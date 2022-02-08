@@ -56,7 +56,7 @@ export default function Contact() {
     <Layout>
       <h1 className='text-4xl mb-4'>Contact</h1>
 
-      <hr className='w-24 mb-12' />
+      <hr className='w-24 mb-12 border-gray-400' />
 
       <p className='mb-8'>
         Want to get in touch, talk about a project or just say hi? Send me a message directly here.
