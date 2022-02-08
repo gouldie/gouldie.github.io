@@ -18,7 +18,7 @@ export default function Header() {
             </a>
           </Link>
           <div className='flex items-center md:order-2'>
-            <ClientOnly>
+            <ClientOnly width='40px'>
               <ThemeToggle />
             </ClientOnly>
             <button
