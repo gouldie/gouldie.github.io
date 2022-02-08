@@ -14,7 +14,7 @@ export default function Header() {
         <div className='flex flex-wrap justify-between items-center mx-auto'>
           <Link href='/'>
             <a>
-              <img className='w-10 md:w-12' src='/logo.png' />
+              <img className='w-10 md:w-12' src='/logo.png' alt='' />
             </a>
           </Link>
           <div className='flex items-center md:order-2'>

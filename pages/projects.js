@@ -43,12 +43,12 @@ export default function Projects() {
             key={project.name}
             className='flex flex-col max-w-xs bg-white m-5 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700'
           >
-            <a href='#'>
-              <img className='rounded-t-lg' src={project.image} alt='' />
+            <a href={project.url} target='_blank' rel='noreferrer noopener'>
+              <img className='rounded-t-lg' src={project.image} alt={`go to ${project.name}`} />
             </a>
             <div className='p-5 flex flex-col justify-between items-start grow'>
               <div>
-                <a href='#'>
+                <a href={project.url} target='_blank' rel='noreferrer noopener'>
                   <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>
                     {project.name}
                   </h5>
