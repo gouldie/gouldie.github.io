@@ -7,7 +7,7 @@ export default function Layout({ children, ...customMeta }) {
   const meta = {
     title: 'Full-Stack Web Developer Portfolio, React/Node.js specialist',
     description: `I’m a full-stack software engineer specialising in React/Node and I create interactive user experiences on the web.`,
-    image: 'todo',
+    image: '/og.png',
     type: 'website',
     ...customMeta
   }
@@ -24,12 +24,12 @@ export default function Layout({ children, ...customMeta }) {
         <meta property='og:site_name' content='Matthew Gould' />
         <meta property='og:description' content={meta.description} />
         <meta property='og:title' content={meta.title} />
-        {/* <meta property='og:image' content={meta.image} /> */}
+        <meta property='og:image' content={meta.image} />
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:site' content='@gouldieweb' />
         <meta name='twitter:title' content={meta.title} />
         <meta name='twitter:description' content={meta.description} />
-        {/* <meta name='twitter:image' content={meta.image} /> */}
+        <meta name='twitter:image' content={meta.image} />
       </Head>
       <main id='skip' className='my-container pb-8'>
         {children}
