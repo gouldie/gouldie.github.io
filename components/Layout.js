@@ -33,7 +33,7 @@ export default function Layout({ children, ...customMeta }) {
         {/* <meta name='twitter:image' content={meta.image} /> */}
       </Head>
       <Header />
-      <main id='skip' className='my-container mb-8'>
+      <main id='skip' className='my-container pb-8'>
         {children}
       </main>
     </>

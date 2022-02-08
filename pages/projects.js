@@ -31,7 +31,7 @@ export default function Projects() {
     <Layout>
       <h1 className='text-4xl mb-4'>Projects</h1>
 
-      <hr className='w-24 mb-12' />
+      <hr className='w-24 mb-12 border-gray-400' />
 
       <p className='mb-8'>
         Here are some of the latest projects I've worked on, or currently working on.
