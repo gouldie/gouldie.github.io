@@ -8,6 +8,10 @@ import { ClientOnly } from '@/components'
 export default function Header() {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
 
+  const closeMobileMenu = () => {
+    setShowMobileMenu(false)
+  }
+
   return (
     <header className='my-container pt-8 pb-16'>
       <nav className='border-gray-200 px-2 sm:px-4 py-2.5 rounded'>
@@ -63,9 +67,9 @@ export default function Header() {
             id='mobile-menu-4'
           >
             <div className='flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium'>
-              <NavItem href='/' label='Home' />
-              <NavItem href='/projects' label='Projects' />
-              <NavItem href='/contact' label='Contact' />
+              <NavItem href='/' label='Home' onClick={closeMobileMenu} />
+              <NavItem href='/projects' label='Projects' onClick={closeMobileMenu} />
+              <NavItem href='/contact' label='Contact' onClick={closeMobileMenu} />
             </div>
           </div>
         </div>
@@ -74,7 +78,7 @@ export default function Header() {
   )
 }
 
-function NavItem({ href, label }) {
+function NavItem({ href, label, onClick }) {
   const router = useRouter()
   const isSelected = router.asPath === href
 
@@ -85,7 +89,7 @@ function NavItem({ href, label }) {
 
   return (
     <Link passHref href={href}>
-      <a>
+      <a onClick={onClick}>
         <span className={isSelected ? selectedClasses : notSelectedClasses}>{label}</span>
       </a>
     </Link>
