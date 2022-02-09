@@ -115,11 +115,11 @@ export default function Contact() {
         </div>
 
         {error ? (
-          <p className='text-red-500' role='alert'>
+          <p className='text-red-500 mb-3' role='alert'>
             {error}
           </p>
         ) : success ? (
-          <p className='text-green-600' role='alert'>
+          <p className='text-green-600 mb-3' role='alert'>
             Your message has been sent! 🎉
           </p>
         ) : null}
@@ -127,7 +127,7 @@ export default function Contact() {
         <div className='flex justify-end'>
           <button
             type='submit'
-            className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
+            className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
           >
             {submitting ? 'Submitting..' : 'Submit'}
           </button>
