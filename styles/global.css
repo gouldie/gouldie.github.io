@@ -58,3 +58,13 @@
   color: yellow;
   font-size: 12px;
 }
+
+h1 {
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+p,
+li {
+  margin-bottom: 12px;
+}
