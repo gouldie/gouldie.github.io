@@ -7,7 +7,7 @@ const projects = [
     description:
       'Customer-facing website with a CMS for news posts, latest research, and a contact form.',
     tech: ['Node.js', 'KeystoneJS', 'Express', 'Pug', 'SASS'],
-    url: 'https://breakingfreegroup.com'
+    url: 'http://breakingfreegroup.com'
   },
   {
     name: 'Breaking Free Online',
