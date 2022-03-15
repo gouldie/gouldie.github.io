@@ -6,8 +6,8 @@ export default function PrivacyPolicy() {
       <div className='pt-10'>
         <h1>Privacy Policy</h1>
         <p>
-          Matthew Gould built the Coding Quizzes app as a Free app. This SERVICE is provided by
-          Matthew Gould at no cost and is intended for use as is.
+          Matthew Gould built the Paradox: Programming Quizzes app as a Free app. This SERVICE is
+          provided by Matthew Gould at no cost and is intended for use as is.
         </p>
         <p>
           This page is used to inform visitors regarding my policies with the collection, use, and
@@ -21,8 +21,8 @@ export default function PrivacyPolicy() {
         </p>
         <p>
           The terms used in this Privacy Policy have the same meanings as in our Terms and
-          Conditions, which are accessible at Coding Quizzes unless otherwise defined in this
-          Privacy Policy.
+          Conditions, which are accessible at Paradox: Programming Quizzes unless otherwise defined
+          in this Privacy Policy.
         </p>
         <p>
           <strong>Information Collection and Use</strong>
