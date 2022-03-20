@@ -41,7 +41,7 @@ export default function Projects() {
         {projects.map(project => (
           <div
             key={project.name}
-            className='flex flex-col max-w-xs bg-white m-5 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700'
+            className='flex flex-col max-w-xs bg-white m-5 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 border-gray-400 dark:border-gray-700'
           >
             <a href={project.url} target='_blank' rel='noreferrer noopener'>
               <img className='rounded-t-lg' src={project.image} alt={`go to ${project.name}`} />
