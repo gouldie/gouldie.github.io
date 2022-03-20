@@ -124,8 +124,8 @@ function ThemeToggle() {
         checked={resolvedTheme === 'dark'}
       />
       <label htmlFor='checkbox' className='label'>
-        <span className='moon'>&#9790;</span>
-        <span className='sun'>&#9728;</span>
+        <img className='sun' src='/sun.svg' alt='' />
+        <img className='moon' src='/moon.svg' alt='' />
         <div className='ball' />
       </label>
     </div>

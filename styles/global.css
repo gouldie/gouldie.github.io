@@ -52,11 +52,15 @@
 .moon {
   color: white;
   font-size: 12px;
+  width: 13px;
+  position: relative;
+  top: -1px;
 }
 
 .sun {
   color: yellow;
   font-size: 12px;
+  width: 12px;
 }
 
 h1 {
