@@ -32,6 +32,9 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Test
+        run: npm run test:ci
+
       - name: Export static files
         run: npm run export
 
