@@ -6,6 +6,8 @@ stages:
 
 variables:
     APP_VERSION: $CI_PIPELINE_IID
+    REGISTRY_ADDRESS: $CI_REGISTRY_IMAGE
+    AWS_S3_BUCKET: elasticbeanstalk-eu-west-2-947593418875
 
 build website:
     image: node:16-alpine
@@ -19,4 +21,48 @@ build website:
     artifacts:
         paths:
             - .next
-            - public
+            - public/version.html
+
+build docker image:
+    stage: package
+    image: docker:20.10.17
+    services:
+        - docker:20.10.17-dind
+    script:
+        - ls public
+        - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER $CI_REGISTRY --password-stdin
+        - docker build -t $REGISTRY_ADDRESS .
+        - docker image ls
+        - docker push --all-tags $REGISTRY_ADDRESS
+
+test docker image:
+    stage: test
+    image: curlimages/curl
+    services:
+        - name: $CI_REGISTRY_IMAGE
+          alias: website
+    script:
+        curl http://website:3000/version.html | grep $APP_VERSION
+
+deploy to production:
+    stage: deploy
+    variables:
+        APP_NAME: portfolio
+        APP_ENV_NAME: Portfolio-env
+    image: 
+        name: amazon/aws-cli:2.4.11
+        entrypoint: [""]
+    script:
+        - aws --version
+        - yum install -y gettext
+        - echo $GITLAB_DEPLOY_TOKEN
+        - export DEPLOY_TOKEN=$(echo $GITLAB_DEPLOY_TOKEN | tr -d "\n" | base64)
+        - envsubst < templates/Dockerrun.aws.json > Dockerrun.aws.json
+        - envsubst < templates/auth.json > auth.json
+        - cat Dockerrun.aws.json
+        - cat auth.json
+        - aws s3 cp Dockerrun.aws.json s3://$AWS_S3_BUCKET/Dockerrun.aws.json
+        - aws s3 cp auth.json s3://$AWS_S3_BUCKET/auth.json
+        - aws elasticbeanstalk create-application-version --application-name $APP_NAME --version-label $APP_VERSION --source-bundle S3Bucket=$AWS_S3_BUCKET,S3Key=Dockerrun.aws.json
+        - aws elasticbeanstalk update-environment --application-name $APP_NAME --version-label $APP_VERSION --environment-name $APP_ENV_NAME
+        
