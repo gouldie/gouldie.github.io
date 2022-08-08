@@ -7,7 +7,6 @@ stages:
 variables:
     APP_VERSION: $CI_PIPELINE_IID
     REGISTRY_ADDRESS: $CI_REGISTRY_IMAGE
-    AWS_S3_BUCKET: elasticbeanstalk-eu-west-2-947593418875
 
 build website:
     image: node:16-alpine
@@ -46,6 +45,7 @@ test docker image:
 
 deploy to production:
     stage: deploy
+    environment: production
     variables:
         APP_NAME: portfolio
         APP_ENV_NAME: Portfolio-env
