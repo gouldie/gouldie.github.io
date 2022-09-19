@@ -21,10 +21,12 @@ export default function Header() {
               <img className='w-10 md:w-12' src='/logo.png' alt='' />
             </a>
           </Link>
-          <div className='flex items-center md:order-2'>
+
+          <div className='md:hidden flex items-center'>
             <ClientOnly>
               <ThemeToggle />
             </ClientOnly>
+
             <button
               data-collapse-toggle='mobile-menu-4'
               type='button'
@@ -60,17 +62,24 @@ export default function Header() {
               </svg>
             </button>
           </div>
+
           <div
             className={`${
               !showMobileMenu ? 'hidden' : ''
-            } justify-between items-center w-full md:flex md:w-auto md:order-1`}
+            } justify-between items-center w-full md:flex md:w-auto`}
             id='mobile-menu-4'
           >
-            <div className='flex flex-col mt-6 md:mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium'>
+            <div className='flex flex-col mt-6 md:mt-4 md:flex-row md:space-x-8 md:mt-0 md:font-medium'>
               <NavItem href='/' label='Home' onClick={closeMobileMenu} />
               <NavItem href='/projects' label='Projects' onClick={closeMobileMenu} />
               <NavItem href='/contact' label='Contact' onClick={closeMobileMenu} />
             </div>
+          </div>
+
+          <div className='hidden md:block'>
+            <ClientOnly>
+              <ThemeToggle />
+            </ClientOnly>
           </div>
         </div>
       </nav>
