@@ -4,10 +4,14 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family: 'Fira Sans', sans-serif;
+  @apply antialiased;
+}
+
 #__next {
   @apply bg-lightbg dark:bg-darkbg text-black dark:text-white;
   min-height: 100vh;
-  font-family: 'Fira Sans', sans-serif;
   transition: 0.2s linear;
 }
 
