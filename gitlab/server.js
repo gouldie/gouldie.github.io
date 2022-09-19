@@ -12,7 +12,6 @@ const handle = app.getRequestHandler()
 var options = {
   key: fs.readFileSync('ssl.key'),
   cert: fs.readFileSync('ssl.crt')
-  // ca: [fs.readFileSync('root.crt')]
 }
 
 app.prepare().then(() => {
