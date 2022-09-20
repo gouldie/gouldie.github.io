@@ -7,6 +7,7 @@ import { ClientOnly } from '@/components'
 
 export default function Header() {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
+  const { resolvedTheme, setTheme } = useTheme()
 
   const closeMobileMenu = () => {
     setShowMobileMenu(false)
@@ -18,7 +19,15 @@ export default function Header() {
         <div className='flex flex-wrap justify-between items-center mx-auto'>
           <Link href='/'>
             <a>
-              <img className='w-10 md:w-12' src='/logo.png' alt='' />
+              <div className='w-20 h-8'>
+                <ClientOnly>
+                  <img
+                    className='w-full'
+                    src={`/logo-${resolvedTheme === 'dark' ? 'dark' : 'light'}.png`}
+                    alt=''
+                  />
+                </ClientOnly>
+              </div>
             </a>
           </Link>
 
@@ -132,7 +141,7 @@ function ThemeToggle() {
         onChange={toggleTheme}
         checked={resolvedTheme === 'dark'}
       />
-      <label htmlFor='checkbox' className='label'>
+      <label htmlFor='checkbox' className='label cursor-pointer'>
         <img className='sun' src='/sun.svg' alt='' />
         <img className='moon' src='/moon.svg' alt='' />
         <div className='ball' />
