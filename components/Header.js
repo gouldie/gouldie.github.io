@@ -5,6 +5,8 @@ import { useTheme } from 'next-themes'
 import PropTypes from 'prop-types'
 import { ClientOnly } from '@/components'
 
+const imagesToPreload = ['bfo', 'bfg', 'reddit']
+
 export default function Header() {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
   const { resolvedTheme, setTheme } = useTheme()
@@ -107,7 +109,17 @@ function NavItem({ href, label, onClick }) {
 
   return (
     <Link passHref href={href}>
-      <a onClick={onClick}>
+      <a
+        onClick={onClick}
+        onMouseOver={() => {
+          if (label === 'Projects') {
+            imagesToPreload?.forEach(src => {
+              const img = new Image()
+              img.src = `/${src}.png`
+            })
+          }
+        }}
+      >
         <span className={isSelected ? selectedClasses : notSelectedClasses}>{label}</span>
       </a>
     </Link>
