@@ -58,7 +58,7 @@ export default function Contact() {
 
       <hr className='w-24 mb-12 border-gray-400' />
 
-      <p className='mb-8'>
+      <p className='mb-12'>
         Want to get in touch, talk about a project or just say hi? Send me a message directly here.
       </p>
 

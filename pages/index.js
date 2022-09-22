@@ -6,7 +6,7 @@ export default function Home() {
 
   return (
     <Layout>
-      <div className='mt-8 sm:mt-20 max-w-4xl'>
+      <div className='mt-8 sm:mt-14 md:mt-28 max-w-4xl'>
         <h1 className='text-4xl mb-4'>Hi, I'm Matt.</h1>
         <h1 className='text-4xl mb-4 leading-tight'>
           I’m a full-stack software engineer specialising in React/Node, and I create interactive
