@@ -7,9 +7,11 @@ import { useRouter } from 'next/router'
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
 
+  const is404 = router.route === '/_error'
+
   return (
     <ThemeProvider attribute='class'>
-      {!router.pathname.includes('quizapp') && <Header />}
+      {!router.pathname.includes('quizapp') && !is404 && <Header />}
       <Component {...pageProps} />
     </ThemeProvider>
   )
