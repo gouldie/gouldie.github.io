@@ -5,7 +5,9 @@ module.exports = {
     extend: {
       colors: {
         darkbg: '#252934',
-        lightbg: '#f9fafb'
+        lightbg: '#ececec',
+        darksubtitle: '#b7b7b7',
+        lightsubtitle: '#757575'
       }
     }
   },

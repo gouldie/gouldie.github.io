@@ -1,0 +1,14 @@
+{
+  "keys-in-react": {
+    "title": "Keys in React",
+    "subtitle": "Why using an index is sometimes not enough",
+    "description": "What are keys in React? What is their purpose, why are they important and why using an index is sometimes not enough.",
+    "description2": "Understanding keys is crucial to developing a better mental model in React.",
+    "content": [
+      {
+        "type": "Header",
+        "text": "An example header"
+      }
+    ]
+  }
+}
