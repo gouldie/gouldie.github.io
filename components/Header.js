@@ -83,7 +83,7 @@ export default function Header() {
             <div className='flex flex-col mt-6 md:mt-4 md:flex-row md:space-x-8 md:mt-0 md:font-medium'>
               <NavItem href='/' label='Home' onClick={closeMobileMenu} />
               <NavItem href='/projects' label='Projects' onClick={closeMobileMenu} />
-              {/* <NavItem href='/posts' label='Posts' onClick={closeMobileMenu} /> */}
+              <NavItem href='/posts' label='Posts' onClick={closeMobileMenu} />
               <NavItem href='/contact' label='Contact' onClick={closeMobileMenu} />
             </div>
           </div>
@@ -101,7 +101,8 @@ export default function Header() {
 
 function NavItem({ href, label, onClick }) {
   const router = useRouter()
-  const isSelected = router.asPath === href
+  // viewing a post should still highlight `Posts`
+  const isSelected = href === '/' ? router.asPath === href : router.asPath.includes(href)
 
   const selectedClasses =
     'block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white'
