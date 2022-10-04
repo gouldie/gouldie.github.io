@@ -102,7 +102,7 @@ export default function Header() {
 function NavItem({ href, label, onClick }) {
   const router = useRouter()
   // viewing a post should still highlight `Posts`
-  const isSelected = href === '/' ? router.asPath === href : router.asPath.includes(href)
+  const isSelected = href === '/' ? router.asPath === href : router.asPath?.includes(href)
 
   const selectedClasses =
     'block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white'
