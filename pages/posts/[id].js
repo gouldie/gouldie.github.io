@@ -34,7 +34,7 @@ function Post() {
           {type === 'text' &&
             resource.map((r, i) => (
               <p key={i} className='mb-6'>
-                {resource}
+                {r}
               </p>
             ))}
         </>

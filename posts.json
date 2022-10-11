@@ -1,30 +1,30 @@
 {
   "keys-in-react": {
-    "title": "Keys in React (todo)",
+    "title": "React - Keys (wip)",
     "subtitle": "Why using an index is sometimes not enough",
     "description": "What are keys in React? What is their purpose, why are they important and why using an index is sometimes not enough.",
     "description2": "Understanding keys is crucial to developing a better mental model in React.",
     "content": [
       {
         "type": "header",
-        "resource": "Header 1"
+        "resource": "Keys - what actually are they?"
       },
       {
         "type": "text",
         "resource": [
-          "2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-          "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          "When rendering a list, it is best practice to provide a key attribute to each list item to help React uniquely identify it. This allows React to keep track of each list item and ensures that, between each render, the internal state of each list item is accurate.",
+          "Fail to provide a key and React will give you a warning. Many code-analysis tools such as ESLint will also show a warning. Without a key, React will default to using indexes.",
+          "Typically, a unique ID from your data set should be used. Developers will often use an index for convenience as it is provided by the `map` function."
         ]
       },
       {
         "type": "header",
-        "resource": "Header 2"
+        "resource": "Why an index is sometimes not enough"
       },
       {
         "type": "text",
         "resource": [
-          "2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-          "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          "So, you've provided the index as a key. Warnings have disappeared. What could go wrong?"
         ]
       }
     ]
