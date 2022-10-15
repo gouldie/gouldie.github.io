@@ -12,7 +12,7 @@
       {
         "type": "text",
         "resource": [
-          "When rendering a list, it is best practice to provide a key attribute to each list item to help React uniquely identify it. This allows React to keep track of each list item and ensures that, between each render, the internal state of each list item is accurate.",
+          "When rendering a list, it is best practice to provide a key attribute to each list item to help React uniquely identify it. This allows React to keep track of each list item and ensures that, between each render, the internal state of each list item is preserved.",
           "Fail to provide a key and React will give you a warning. Many code-analysis tools such as ESLint will also show a warning. Without a key, React will default to using indexes.",
           "Typically, a unique ID from your data set should be used. Developers will often use an index for convenience as it is provided by the `map` function."
         ]
@@ -24,7 +24,43 @@
       {
         "type": "text",
         "resource": [
-          "So, you've provided the index as a key. Warnings have disappeared. What could go wrong?"
+          "So, you've provided the index as a key. Warnings have disappeared. What could go wrong?",
+          "Here is a simple stock management app. It renders a list of products and the number of stock available for each one. It has two main features:",
+          [
+            "The user can update the number of stock for a particular product",
+            "The user can shuffle the order of the stock"
+          ]
+        ]
+      },
+      {
+        "type": "image",
+        "resource": "/images/keys-1.png"
+      },
+      {
+        "type": "text",
+        "resource": [
+          "Product data is initialised in memory. In a more realistic scenario, this would come from a database."
+        ]
+      },
+      {
+        "type": "image",
+        "resource": "/images/keys-2.png"
+      },
+      {
+        "type": "text",
+        "resource": [
+          "Parent component iterates through the products, rendering a child component for each one. Each child has its own local state for updating the stock number. Also note that each child is given the index as its key."
+        ]
+      },
+      {
+        "type": "image",
+        "resource": "/images/keys-3.png"
+      },
+      {
+        "type": "text",
+        "resource": [
+          "If we were to shuffle the list, a product could end up in a different position and thus be given a different key.",
+          "Keys no longer uniquely identify a product. React can no longer uniquely identify each product. State becomes corrupt."
         ]
       }
     ]

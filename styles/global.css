@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;700&display=swap');
 
-@tailwind base;
+/* @tailwind base; */
 @tailwind components;
 @tailwind utilities;
 
@@ -75,4 +75,19 @@ h1 {
 p,
 li {
   margin-bottom: 12px;
+}
+
+/* Post Code Styling */
+.stock button {
+  margin-bottom: 20px;
+}
+
+.item {
+  margin-bottom: 15px;
+}
+
+.item input {
+  width: 45px;
+  margin-top: 3px;
+  text-align: center;
 }

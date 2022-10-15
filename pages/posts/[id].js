@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Layout } from '@/components'
 import postsJSON from '@/posts.json'
+import { Stock } from 'posts-code'
 
 function Post() {
   const router = useRouter()
@@ -31,14 +32,25 @@ function Post() {
       {post.content.map(({ type, resource }, index) => (
         <>
           {type === 'header' && <h2 className='text-2xl mt-10 mb-6'>{resource}</h2>}
+          {type === 'image' && <img src={resource} alt='' style={{ maxWidth: '100px' }} />}
           {type === 'text' &&
-            resource.map((r, i) => (
-              <p key={i} className='mb-6'>
-                {r}
-              </p>
-            ))}
+            resource.map((element, i) =>
+              typeof element === 'string' ? (
+                <p key={i} className='mb-6'>
+                  {element}
+                </p>
+              ) : (
+                <ul>
+                  {element.map((listItem, i2) => (
+                    <li key={i2}>{listItem}</li>
+                  ))}
+                </ul>
+              )
+            )}
         </>
       ))}
+
+      {/* <Stock /> */}
     </Layout>
   )
 }
