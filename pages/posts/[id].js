@@ -33,7 +33,7 @@ function Post() {
         <>
           {type === 'header' && <h2 className='text-2xl mt-10 mb-6 font-semibold'>{resource}</h2>}
           {type === 'image' && (
-            <div className='text-center pt-4 pb-6'>
+            <figure className='text-center pt-4 pb-6'>
               <img
                 className='inline'
                 src={resource.src}
@@ -41,7 +41,7 @@ function Post() {
                 style={{ maxWidth: resource.maxWidth }}
               />
               <figcaption className='text-xs pt-2'>Image: {resource.alt}</figcaption>
-            </div>
+            </figure>
           )}
           {type === 'text' &&
             resource.map((element, i) =>
