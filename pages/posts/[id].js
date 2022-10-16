@@ -31,8 +31,18 @@ function Post() {
 
       {post.content.map(({ type, resource }, index) => (
         <>
-          {type === 'header' && <h2 className='text-2xl mt-10 mb-6'>{resource}</h2>}
-          {type === 'image' && <img src={resource} alt='' style={{ maxWidth: '100px' }} />}
+          {type === 'header' && <h2 className='text-2xl mt-10 mb-6 font-semibold'>{resource}</h2>}
+          {type === 'image' && (
+            <div className='text-center pt-4 pb-6'>
+              <img
+                className='inline'
+                src={resource.src}
+                alt={resource.alt}
+                style={{ maxWidth: resource.maxWidth }}
+              />
+              <figcaption className='text-xs pt-2'>Image: {resource.alt}</figcaption>
+            </div>
+          )}
           {type === 'text' &&
             resource.map((element, i) =>
               typeof element === 'string' ? (

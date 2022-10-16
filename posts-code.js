@@ -41,13 +41,13 @@ function Stock() {
     <div className='stock'>
       <button onClick={shuffleProducts}>Shuffle</button>
       {products.map((product, index) => (
-        <Item key={index} itemName={product.name} initialStock={product.stock} />
+        <Product key={product.id} productName={product.name} initialStock={product.stock} />
       ))}
     </div>
   )
 }
 
-function Item({ itemName, initialStock }) {
+function Product({ productName, initialStock }) {
   const [stock, setStock] = useState(initialStock)
 
   const onChangeStock = event => {
@@ -55,8 +55,8 @@ function Item({ itemName, initialStock }) {
   }
 
   return (
-    <div className='item'>
-      <div>Item: {itemName}</div>
+    <div className='product'>
+      <div>Product: {productName}</div>
       <div>
         Stock: <input type='number' value={stock} onChange={onChangeStock} />
       </div>

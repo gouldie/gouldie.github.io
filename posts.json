@@ -1,6 +1,6 @@
 {
   "keys-in-react": {
-    "title": "React - Keys (wip)",
+    "title": "React - Keys",
     "subtitle": "Why using an index is sometimes not enough",
     "description": "What are keys in React? What is their purpose, why are they important and why using an index is sometimes not enough.",
     "description2": "Understanding keys is crucial to developing a better mental model in React.",
@@ -19,22 +19,26 @@
       },
       {
         "type": "header",
-        "resource": "Why an index is sometimes not enough"
+        "resource": "Why using an index is sometimes not enough"
       },
       {
         "type": "text",
         "resource": [
           "So, you've provided the index as a key. Warnings have disappeared. What could go wrong?",
-          "Here is a simple stock management app. It renders a list of products and the number of stock available for each one. It has two main features:",
+          "Here is a simple stock management app. It displays a list of products and the number of stock available for each one. It has two main features:",
           [
-            "The user can update the number of stock for a particular product",
-            "The user can shuffle the order of the stock"
+            "The user can update the stock for a particular product",
+            "The user can shuffle the order of the products"
           ]
         ]
       },
       {
         "type": "image",
-        "resource": "/images/keys-1.png"
+        "resource": {
+          "src": "/images/keys-1.png",
+          "alt": "Stock management app",
+          "maxWidth": "100px"
+        }
       },
       {
         "type": "text",
@@ -44,7 +48,11 @@
       },
       {
         "type": "image",
-        "resource": "/images/keys-2.png"
+        "resource": {
+          "src": "/images/keys-2.png",
+          "alt": "Initial product data",
+          "maxWidth": "200px"
+        }
       },
       {
         "type": "text",
@@ -54,13 +62,73 @@
       },
       {
         "type": "image",
-        "resource": "/images/keys-3.png"
+        "resource": {
+          "src": "/images/keys-3.png",
+          "alt": "React code that renders the products",
+          "maxWidth": "600px"
+        }
       },
       {
         "type": "text",
         "resource": [
           "If we were to shuffle the list, a product could end up in a different position and thus be given a different key.",
           "Keys no longer uniquely identify a product. React can no longer uniquely identify each product. State becomes corrupt."
+        ]
+      },
+      {
+        "type": "image",
+        "resource": {
+          "src": "/images/keys-4.gif",
+          "alt": "State becoming corrupt with indexes as keys",
+          "maxWidth": "100px"
+        }
+      },
+      {
+        "type": "header",
+        "resource": "So what's the solution?"
+      },
+      {
+        "type": "text",
+        "resource": [
+          "Ensure each item has unique identifier. If it's a database resource, it may already have a unique id you can use."
+        ]
+      },
+      {
+        "type": "image",
+        "resource": {
+          "src": "/images/keys-5.png",
+          "alt": "Giving each product a unique id",
+          "maxWidth": "200px"
+        }
+      },
+      {
+        "type": "text",
+        "resource": ["Use the unique identifier as the key rather than the index."]
+      },
+      {
+        "type": "image",
+        "resource": {
+          "src": "/images/keys-6.png",
+          "alt": "Passing the unique id as a key into each list item",
+          "maxWidth": "600px"
+        }
+      },
+      {
+        "type": "text",
+        "resource": ["Finally, React should now be able to track each list item correctly."]
+      },
+      {
+        "type": "image",
+        "resource": {
+          "src": "/images/keys-7.gif",
+          "alt": "Correct state using ids as keys",
+          "maxWidth": "100px"
+        }
+      },
+      {
+        "type": "text",
+        "resource": [
+          "tl;dr - only use indexes as keys if you are sure the list order and length will not change. If in doubt, use a unique identifier."
         ]
       }
     ]
