@@ -35,10 +35,9 @@ function Post() {
           {type === 'image' && (
             <figure className='text-center pt-4 pb-6'>
               <img
-                className='inline'
+                className={`inline w-[${resource.maxWidth}] max-w-[90%]`}
                 src={resource.src}
                 alt={resource.alt}
-                style={{ maxWidth: resource.maxWidth }}
               />
               <figcaption className='text-xs pt-2'>Image: {resource.alt}</figcaption>
             </figure>
