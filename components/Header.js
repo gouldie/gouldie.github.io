@@ -20,17 +20,15 @@ export default function Header() {
       <nav className='border-gray-200 px-2 sm:px-4 py-2.5 rounded'>
         <div className='flex flex-wrap justify-between items-center mx-auto'>
           <Link href='/'>
-            <a>
-              <div className='w-20 h-8'>
-                <ClientOnly>
-                  <img
-                    className='w-full'
-                    src={`/logo-${resolvedTheme === 'dark' ? 'dark' : 'light'}.png`}
-                    alt=''
-                  />
-                </ClientOnly>
-              </div>
-            </a>
+            <div className='w-20 h-8'>
+              <ClientOnly>
+                <img
+                  className='w-full'
+                  src={`/logo-${resolvedTheme === 'dark' ? 'dark' : 'light'}.png`}
+                  alt=''
+                />
+              </ClientOnly>
+            </div>
           </Link>
 
           <div className='md:hidden flex items-center'>
@@ -110,20 +108,19 @@ function NavItem({ href, label, onClick }) {
     'block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700'
 
   return (
-    <Link passHref href={href}>
-      <a
-        onClick={onClick}
-        onMouseOver={() => {
-          if (label === 'Projects') {
-            imagesToPreload?.forEach(src => {
-              const img = new Image()
-              img.src = `/${src}.png`
-            })
-          }
-        }}
-      >
-        <span className={isSelected ? selectedClasses : notSelectedClasses}>{label}</span>
-      </a>
+    <Link
+      href={href}
+      onClick={onClick}
+      onMouseOver={() => {
+        if (label === 'Projects') {
+          imagesToPreload?.forEach(src => {
+            const img = new Image()
+            img.src = `/${src}.png`
+          })
+        }
+      }}
+    >
+      <span className={isSelected ? selectedClasses : notSelectedClasses}>{label}</span>
     </Link>
   )
 }

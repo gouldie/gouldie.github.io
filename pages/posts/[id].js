@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Layout } from '@/components'
@@ -30,7 +30,7 @@ function Post() {
       </div>
 
       {post.content.map(({ type, resource }, index) => (
-        <>
+        <Fragment key={index}>
           {type === 'header' && <h2 className='text-2xl mt-10 mb-6 font-semibold'>{resource}</h2>}
           {type === 'image' && (
             <figure className='text-center pt-4 pb-6'>
@@ -49,14 +49,14 @@ function Post() {
                   {element}
                 </p>
               ) : (
-                <ul>
+                <ul key={i}>
                   {element.map((listItem, i2) => (
                     <li key={i2}>{listItem}</li>
                   ))}
                 </ul>
               )
             )}
-        </>
+        </Fragment>
       ))}
 
       {/* <Stock /> */}

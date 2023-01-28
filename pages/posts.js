@@ -18,20 +18,18 @@ export default function Posts() {
               key={slug}
               className='dark:bg-slate-700 bg-white rounded-lg w-full md:w-[48%] mb-5 p-7 py-5'
             >
-              <Link href={`/posts/${slug}`} passHref>
-                <a className='block'>
-                  <h2 className='font-bold text-lg mb-1'>{post.title}</h2>
+              <Link href={`/posts/${slug}`} passHref className='block'>
+                <h2 className='font-bold text-lg mb-1'>{post.title}</h2>
 
-                  {post.subtitle && (
-                    <h2 className='mb-4 text-lightsubtitle dark:text-darksubtitle'>
-                      {post.subtitle}
-                    </h2>
-                  )}
+                {post.subtitle && (
+                  <h2 className='mb-4 text-lightsubtitle dark:text-darksubtitle'>
+                    {post.subtitle}
+                  </h2>
+                )}
 
-                  <h2 className='text-base mb-4'>{post.description}</h2>
+                <h2 className='text-base mb-4'>{post.description}</h2>
 
-                  <span className='font-bold'>Read more</span>
-                </a>
+                <span className='font-bold'>Read more</span>
               </Link>
             </article>
           )

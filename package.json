@@ -10,8 +10,8 @@
     "test:ci": "jest --ci"
   },
   "dependencies": {
-    "next": "^12.1.5",
-    "next-themes": "^0.0.15",
+    "next": "^13.1.6",
+    "next-themes": "^0.2.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
