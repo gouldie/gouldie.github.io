@@ -8,6 +8,7 @@ description:
 ---
 
 import Post from '@/components/Post'
+import PostImage from '@/components/PostImage'
 
 # React - Keys
 
@@ -35,39 +36,18 @@ available for each one. It has two main features:
 - The user can update the stock for a particular product
 - The user can shuffle the order of the products
 
-<figure className='text-center pt-4 pb-6'>
-  <img
-    className={`inline w-[100px] max-w-[90%]`}
-    src='/images/keys-1.png'
-    alt='Stock management app'
-  />
-  <figcaption className='text-xs pt-2'>Image: Stock management app</figcaption>
-</figure>
+<PostImage src='/images/keys-1.png' alt='Stock management app' width='100px' />
 
 Product data is initialised in memory. In a more realistic scenario, this would come from a
 database.
 
-<figure className='text-center pt-4 pb-6'>
-  <img
-    className={`inline w-[200px] max-w-[90%]`}
-    src='/images/keys-2.png'
-    alt='Initial product data'
-  />
-  <figcaption className='text-xs pt-2'>Image: Initial product data</figcaption>
-</figure>
+<PostImage src='/images/keys-2.png' alt='Initial product data' width='200px' />
 
 Parent component iterates through the products, rendering a child component for each one. Each child
 has its own local state for updating the stock number. Also note that each child is given the index
 as its key.
 
-<figure className='text-center pt-4 pb-6'>
-  <img
-    className={`inline w-[600px] max-w-[90%]`}
-    src='/images/keys-3.png'
-    alt='React code that renders the products'
-  />
-  <figcaption className='text-xs pt-2'>Image: React code that renders the products</figcaption>
-</figure>
+<PostImage src='/images/keys-3.png' alt='React code that renders the products' width='600px' />
 
 If we were to shuffle the list, a product could end up in a different position and thus be given a
 different key.
@@ -75,54 +55,30 @@ different key.
 Keys no longer uniquely identify a product. React can no longer uniquely identify each product.
 State becomes corrupt.
 
-<figure className='text-center pt-4 pb-6'>
-  <img
-    className={`inline w-[100px] max-w-[90%]`}
-    src='/images/keys-4.gif'
-    alt='State becoming corrupt with indexes as keys'
-  />
-  <figcaption className='text-xs pt-2'>
-    Image: State becoming corrupt with indexes as keys
-  </figcaption>
-</figure>
+<PostImage
+  src='/images/keys-4.gif'
+  alt='State becoming corrupt with indexes as keys'
+  width='100px'
+/>
 
 ### So what's the solution?
 
 Ensure each item has unique identifier. If it's a database resource, it may already have a unique id
 you can use.
 
-<figure className='text-center pt-4 pb-6'>
-  <img
-    className={`inline w-[100px] max-w-[90%]`}
-    src='/images/keys-5.png'
-    alt='Giving each product a unique id'
-  />
-  <figcaption className='text-xs pt-2'>Image: Giving each product a unique id</figcaption>
-</figure>
+<PostImage src='/images/keys-5.png' alt='Giving each product a unique id' width='200px' />
 
 Use the unique identifier as the key rather than the index.
 
-<figure className='text-center pt-4 pb-6'>
-  <img
-    className={`inline w-[600px] max-w-[90%]`}
-    src='/images/keys-6.png'
-    alt='Passing the unique id as a key into each list item'
-  />
-  <figcaption className='text-xs pt-2'>
-    Image: Passing the unique id as a key into each list item
-  </figcaption>
-</figure>
+<PostImage
+  src='/images/keys-6.png'
+  alt='Passing the unique id as a key into each list item'
+  width='600px'
+/>
 
 Finally, React should now be able to track each list item correctly.
 
-<figure className='text-center pt-4 pb-6'>
-  <img
-    className={`inline w-[100px] max-w-[90%]`}
-    src='/images/keys-7.gif'
-    alt='Correct state using ids as keys'
-  />
-  <figcaption className='text-xs pt-2'>Image: Correct state using ids as keys</figcaption>
-</figure>
+<PostImage src='/images/keys-7.gif' alt='Correct state using ids as keys' width='100px' />
 
 tl;dr - only use indexes as keys if you are sure the list order and length will not change. If in
 doubt, use a unique identifier.
