@@ -18,8 +18,8 @@ export default function Layout({ children, ...customMeta }) {
         <title>{meta.title}</title>
         <meta name='robots' content='follow, index' />
         <meta content={meta.description} name='description' />
-        <meta property='og:url' content={`https://gouldie.github.io${router.asPath}`} />
-        <link rel='canonical' href={`https://gouldie.github.io${router.asPath}`} />
+        <meta property='og:url' content={`https://matthewgould.dev${router.asPath}`} />
+        <link rel='canonical' href={`https://matthewgould.dev${router.asPath}`} />
         <meta property='og:type' content={meta.type} />
         <meta property='og:site_name' content='Matthew Gould' />
         <meta property='og:description' content={meta.description} />

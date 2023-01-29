@@ -1,14 +1,11 @@
 ---
 slug: keys-in-react
-title: React - Keys
+title: 'Keys in React: How do they work?'
 subtitle: Why using an index is sometimes not enough
 description:
   What are keys in React? What is their purpose, why are they important and why using an index is
   sometimes not enough.
 ---
-
-import Post from '@/components/Post'
-import PostImage from '@/components/PostImage'
 
 # React - Keys
 
@@ -82,5 +79,3 @@ Finally, React should now be able to track each list item correctly.
 
 tl;dr - only use indexes as keys if you are sure the list order and length will not change. If in
 doubt, use a unique identifier.
-
-export default ({ children }) => <Post>{children}</Post>
