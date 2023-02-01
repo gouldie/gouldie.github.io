@@ -2,7 +2,7 @@ import { useTheme } from 'next-themes'
 import { Layout, ClientOnly } from '@/components'
 
 export default function Home() {
-  const { resolvedTheme, ...other } = useTheme()
+  const { resolvedTheme } = useTheme()
 
   return (
     <Layout>

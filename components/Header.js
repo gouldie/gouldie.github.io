@@ -9,7 +9,7 @@ const imagesToPreload = ['bfo', 'bfg', 'reddit']
 
 export default function Header() {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
-  const { resolvedTheme, setTheme } = useTheme()
+  const { resolvedTheme } = useTheme()
 
   const closeMobileMenu = () => {
     setShowMobileMenu(false)

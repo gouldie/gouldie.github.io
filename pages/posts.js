@@ -1,9 +1,6 @@
-import { useState } from 'react'
 import Link from 'next/link'
 import { Layout } from '@/components'
 import { getPosts } from '@/utils/posts'
-
-const initialState = { name: '', email: '', message: '' }
 
 export default function Posts({ postMetadata }) {
   return (
