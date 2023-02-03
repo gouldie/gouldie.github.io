@@ -1,13 +1,15 @@
+import Head from 'next/head'
+import Link from 'next/link'
 import matter from 'gray-matter'
 import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
-import Link from 'next/link'
-import { Layout, PostImage } from '@/components'
+import rehypeHighlight from 'rehype-highlight'
+import { Layout, PostImage, CodeEditors } from '@/components'
 import { getFileData, getPaths } from '@/utils/posts'
-import Head from 'next/head'
 
 const components = {
   PostImage,
+  ...CodeEditors,
   h1: ({ children }) => <h1 className='text-4xl mb-2'>{children}</h1>,
   h2: ({ children }) => (
     <h2 className='text-lightsubtitle dark:text-darksubtitle mb-12'>{children}</h2>
@@ -42,7 +44,7 @@ export const getStaticProps = async context => {
 
   const source = getFileData(id)
   const { content, data } = matter(source)
-  const mdxSource = await serialize(content)
+  const mdxSource = await serialize(content, { mdxOptions: { rehypePlugins: [rehypeHighlight] } })
 
   return {
     props: {

@@ -35,43 +35,49 @@ available for each one. It has two main features:
 
 <PostImage src='/images/keys-1.png' alt='Stock management app' width='100px' />
 
-Product data is initialised in memory. In a more realistic scenario, this would come from a
-database.
+Product data is initialised in memory within `data.json`. In a real-world scenario, this would
+likely come from a database. `<Stock />` iterates through the products, rendering a `<Product />`
+for each one. Each `<Product />` has its own local state for updating the stock number. Also note
+that each `<Product />` is given the index as its key.
 
-<PostImage src='/images/keys-2.png' alt='Initial product data' width='200px' />
+<StockManagement />
 
-Parent component iterates through the products, rendering a child component for each one. Each child
-has its own local state for updating the stock number. Also note that each child is given the index
-as its key.
-
-<PostImage src='/images/keys-3.png' alt='React code that renders the products' width='600px' />
-
-If we were to shuffle the list, a product could end up in a different position and thus be given a
-different key.
-
-Keys no longer uniquely identify a product. React can no longer uniquely identify each product.
-State becomes corrupt.
-
-<PostImage
-  src='/images/keys-4.gif'
-  alt='State becoming corrupt with indexes as keys'
-  width='100px'
-/>
+When shuffling the list, you can see that a product could end up in a different position and thus be
+given a different key. The result of this is that keys no longer uniquely identify a product, and
+therefore React can no longer uniquely identify each product. State becomes corrupt.
 
 ### So what's the solution?
 
 Ensure each item has unique identifier. If it's a database resource, it may already have a unique id
 you can use.
 
-<PostImage src='/images/keys-5.png' alt='Giving each product a unique id' width='200px' />
+```json
+[
+  {
+    "id": 1,
+    "name": "Milk",
+    "stock": 5
+  },
+  {
+    "id": 2,
+    "name": "Bread",
+    "stock": 8
+  },
+  {
+    "id": 3,
+    "name": "Cheese",
+    "stock": 3
+  },
+  {
+    "id": 4,
+    "name": "Eggs",
+    "stock": 1
+  }
+]
+```
 
-Use the unique identifier as the key rather than the index.
-
-<PostImage
-  src='/images/keys-6.png'
-  alt='Passing the unique id as a key into each list item'
-  width='600px'
-/>
+Use the unique identifier as the key rather than the index. In the above code editor, try giving
+each product a unique id and assigning that id as the key for each `<Product />`.
 
 Finally, React should now be able to track each list item correctly.
 
