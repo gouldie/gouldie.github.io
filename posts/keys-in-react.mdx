@@ -60,12 +60,9 @@ you can use.
 ]
 ```
 
-Use the unique identifier as the key rather than the index. In the above code editor, try giving
-each product a unique id and assigning that id as the key for each `<Product />`.
+Use the unique identifier as the key rather than the index. Give it a try! Give each product a
+unique id and then assign that id as the key for each `<Product />`.
 
 Finally, React should now be able to track each list item correctly.
 
 <PostImage src='/images/keys-7.gif' alt='Correct state using ids as keys' width='100px' />
-
-tl;dr - only use indexes as keys if you are sure the list order and length will not change. If in
-doubt, use a unique identifier.

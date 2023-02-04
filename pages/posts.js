@@ -11,11 +11,8 @@ export default function Posts({ postMetadata }) {
       <div className='flex flex-wrap justify-between'>
         {postMetadata.map(({ slug, title, subtitle, description }) => {
           return (
-            <article
-              key={slug}
-              className='dark:bg-slate-700 bg-white rounded-lg w-full md:w-[48%] mb-5 p-7 py-5'
-            >
-              <Link href={`/posts/${slug}`} passHref className='block'>
+            <Link key={slug} href={`/posts/${slug}`} passHref className='w-full md:w-[48%]'>
+              <article className='dark:bg-slate-700 bg-white rounded-lg mb-5 p-7 py-5'>
                 <h2 className='font-bold text-lg mb-1'>{title}</h2>
 
                 <h2 className='mb-4 text-lightsubtitle dark:text-darksubtitle'>{subtitle}</h2>
@@ -23,8 +20,8 @@ export default function Posts({ postMetadata }) {
                 <h2 className='text-base mb-4'>{description}</h2>
 
                 <span className='font-bold'>Read more</span>
-              </Link>
-            </article>
+              </article>
+            </Link>
           )
         })}
       </div>
