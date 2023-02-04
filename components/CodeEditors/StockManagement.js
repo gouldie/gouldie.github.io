@@ -113,7 +113,7 @@ const stylesCSS = `body {
   font-smooth: always;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
-  background: #dedede;
+  background: #ececec;
 }
 
 .stock button {
