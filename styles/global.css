@@ -15,14 +15,6 @@ body {
   transition: 0.2s linear;
 }
 
-pre {
-  @apply w-fit mx-auto;
-}
-
-code {
-  @apply text-sm my-8;
-}
-
 .my-container {
   @apply max-w-7xl mx-auto px-8;
 }

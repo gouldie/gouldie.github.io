@@ -3,11 +3,16 @@ import Link from 'next/link'
 import matter from 'gray-matter'
 import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
-import rehypeHighlight from 'rehype-highlight'
+import { remarkCodeHike } from '@code-hike/mdx'
+import { CH } from '@code-hike/mdx/components'
 import { Layout, PostImage, CodeEditors } from '@/components'
 import { getFileData, getPaths } from '@/utils/posts'
+import theme from '@/themes/night-owl'
+
+import '@code-hike/mdx/dist/index.css'
 
 const components = {
+  CH,
   PostImage,
   ...CodeEditors,
   h1: ({ children }) => <h1 className='text-4xl mb-2'>{children}</h1>,
@@ -44,7 +49,12 @@ export const getStaticProps = async context => {
 
   const source = getFileData(id)
   const { content, data } = matter(source)
-  const mdxSource = await serialize(content, { mdxOptions: { rehypePlugins: [rehypeHighlight] } })
+  const mdxSource = await serialize(content, {
+    mdxOptions: {
+      remarkPlugins: [[remarkCodeHike, { autoImport: false, theme }]],
+      useDynamicImport: true
+    }
+  })
 
   return {
     props: {
