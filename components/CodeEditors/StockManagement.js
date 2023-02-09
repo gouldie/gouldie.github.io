@@ -2,10 +2,10 @@
 import CodeEditor from './CodeEditor'
 
 const initialProductsJSONv1 = `[
-  { "name": "Milk", "stock": 5 },
-  { "name": "Bread", "stock": 8 },
-  { "name": "Cheese", "stock": 3 },
-  { "name": "Eggs", "stock": 1 }
+  { "name": "🥛 Milk", "stock": 5 },
+  { "name": "🍞 Bread", "stock": 8 },
+  { "name": "🧀 Cheese", "stock": 3 },
+  { "name": "🥚 Eggs", "stock": 1 }
 ]
 `
 
@@ -133,16 +133,14 @@ const stylesCSS = `body {
 
 function StockManagement({ v2 = false }) {
   return (
-    <div className='my-8'>
-      <CodeEditor
-        files={{
-          'data.json': v2 ? initialProductsJSONv2 : initialProductsJSONv1,
-          'utils.js': utilsJS,
-          'App.js': v2 ? appJSv2 : appJSv1,
-          'styles.css': { code: stylesCSS, hidden: true }
-        }}
-      />
-    </div>
+    <CodeEditor
+      files={{
+        'data.json': v2 ? initialProductsJSONv2 : initialProductsJSONv1,
+        'utils.js': utilsJS,
+        'App.js': v2 ? appJSv2 : appJSv1,
+        'styles.css': { code: stylesCSS, hidden: true }
+      }}
+    />
   )
 }
 

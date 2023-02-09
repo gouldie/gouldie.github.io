@@ -21,7 +21,8 @@ const components = {
   ),
   h3: ({ children }) => <h1 className='text-2xl mt-10 mb-6 font-semibold'>{children}</h1>,
   p: ({ children }) => <p className='mb-6'>{children}</p>,
-  li: ({ children }) => <li className='list-disc'>{children}</li>
+  ul: ({ children }) => <ul className='mb-6 list-disc'>{children}</ul>,
+  li: ({ children }) => <li className='mb-2'>{children}</li>
 }
 
 const Post = ({ mdxSource, frontMatter }) => {
@@ -33,11 +34,12 @@ const Post = ({ mdxSource, frontMatter }) => {
         <meta name='og:description' content={frontMatter.description} />
         <meta name='twitter:description' content={frontMatter.description} />
       </Head>
-      <div className='mb-6'>
-        <Link href='/posts'>← Back to posts</Link>
+      <div className='max-w-[50rem] mx-auto'>
+        <div className='mb-6'>
+          <Link href='/posts'>← Back to posts</Link>
+        </div>
+        <MDXRemote {...mdxSource} components={components} />
       </div>
-
-      <MDXRemote {...mdxSource} components={components} />
     </Layout>
   )
 }

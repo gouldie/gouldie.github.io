@@ -1,31 +1,111 @@
 ---
 slug: keys-in-react
-title: 'React - Keys'
+title: 'Keys in React'
 subtitle: Why using an index is sometimes not enough
 description:
   What are keys in React? What is their purpose, why are they important and why using an index is
   sometimes not enough.
 ---
 
-# React - Keys
+# Keys in React
 
 ## Why using an index is sometimes not enough
 
-### Keys - what actually are they?
+```
+Warning: Each child in a list should have a unique "key" prop.
+```
 
-When rendering a list, it is best practice to provide a key attribute to each list item to help
-React uniquely identify it. This allows React to keep track of each list item and ensures that,
-between each render, the internal state of each list item is preserved.
+If you're familiar with React, you've probably come across this warning before. It occurs when
+attempting to render a list without providing a key to each list item.
 
-Fail to provide a key and React will give you a warning. Many code-analysis tools such as ESLint
-will also show a warning. Without a key, React will default to using indexes.
+So, provide a key, and the warning disappears. Problem solved? Not always.
 
-Typically, a unique ID from your data set should be used. Developers will often use an index for
-convenience as it is provided by the `map` function.
+There can be some confusion around why the keys are required and what their values should be.
+
+### Why are keys required?
+
+It's about optimization.
+
+Due to
+React's&nbsp;<a href='https://reactjs.org/docs/reconciliation.html#the-diffing-algorithm' target='_blank'>
+diffing algorithm</a>&nbsp;, it cannot efficiently determine when a list order changes, or when
+items are added or removed.
+
+Take this example of a list that you are asking React to render using the `map` function:
+
+```js
+<li>🍞 Bread. Stock: 5</li>
+<li>🥚 Eggs. Stock: 3</li>
+<li>🥛 Milk. Stock: 4</li>
+```
+
+Now, let's pretend the user deletes the first element, 🍞.
+
+```js
+<li>🥚 Eggs. Stock: 3</li>
+<li>🥛 Milk. Stock: 4</li>
+```
+
+We know that 🍞 was simply deleted and the rest shifted up. But React does not. It cannot know
+whether 🍞 was deleted, or whether 🥚 was deleted and 🍞 renamed to 🥚, or whether 🥛 was swapped
+with 🍞, 🥛 renamed to 🥚 and 🥚 renamed to 🥛.
+
+This might not seem like a big deal, but in a real application, each of these list items would
+likely have some underlying state, and making the wrong assumption could lead to unintended
+side-effects.
+
+### Enter the key prop
+
+The `key` prop allows the developer to give React a hint as to which list item is which.
+
+Using the same example, but with a key:
+
+```js
+<li key="bread">🍞 Bread. Stock: 5</li>
+<li key="eggs">🥚 Eggs. Stock: 3</li>
+<li key="milk">🥛 Milk. Stock: 4</li>
+```
+
+Let's say the user deletes the 🥚 this time.
+
+```js
+<li key="bread">🍞 Bread. Stock: 5</li>
+<li key="milk">🥛 Milk. Stock: 4</li>
+```
+
+React knows the second element was deleted, because the key is now gone. As a result React can
+perform the re-render much more efficiently.
 
 ### Why using an index is sometimes not enough
 
-So, you've provided the index as a key. Warnings have disappeared. What could go wrong?
+Using a key as an index _will_ supress Reacts warning, however, it can produce unintended
+side-effects if the list can change (re-order, add or remove elements).
+
+Using the same example, with an index as a key:
+
+```js
+<li key={0}>🍞 Bread. Stock: 5</li>
+<li key={1}>🥚 Eggs. Stock: 3</li>
+<li key={2}>🥛 Milk. Stock: 4</li>
+```
+
+User deletes the second element, 🥚.
+
+```js
+<li key={0}>🍞 Bread. Stock: 5</li>
+<li key={1}>🥚 Eggs. Stock: 3</li>
+```
+
+When 🥚 was deleted, 🥛 took over position 2 (index 1) in the array, and therefore key 1. In other
+words, React thinks 🥛 was deleted because key 2 no longer exists.
+
+This funky behaviour _can_ depend on your implementation, but generally it's best not to mess around
+and simply provide React a key that meets the following criteria:
+
+- It must be stable (not change during the lifetime of the component)
+- It must be unique within the list
+
+### Try it yourself
 
 Here is a simple stock management app. It displays a list of products and the number of stock
 available for each one. It has two main features:
@@ -33,36 +113,10 @@ available for each one. It has two main features:
 - The user can update the stock for a particular product
 - The user can shuffle the order of the products
 
-<PostImage src='/images/keys-1.png' alt='Stock management app' width='100px' />
-
-Product data is initialised in memory within `data.json`. In a real-world scenario, this would
-likely come from a database. `<Stock />` iterates through the products, rendering a `<Product />`
-for each one. Each `<Product />` has its own local state for updating the stock number. Also note
-that each `<Product />` is given the index as its key.
+Unfortunately, the developer used the product index as the key for each `<Product />`. As a result,
+shuffling doesn't work as expected. Can you fix it?
 
 <StockManagement />
 
-When shuffling the list, you can see that a product could end up in a different position and thus be
-given a different key. The result of this is that keys no longer uniquely identify a product, and
-therefore React can no longer uniquely identify each product. State becomes corrupt.
-
-### So what's the solution?
-
-Ensure each item has unique identifier. If it's a database resource, it may already have a unique id
-you can use.
-
-```json data.json
-[
-  { "id": 1, "name": "Milk", "stock": 5 },
-  { "id": 2, "name": "Bread", "stock": 8 },
-  { "id": 3, "name": "Cheese", "stock": 3 },
-  { "id": 4, "name": "Eggs", "stock": 1 }
-]
-```
-
-Use the unique identifier as the key rather than the index. Give it a try! Give each product a
-unique id and then assign that id as the key for each `<Product />`.
-
-Finally, React should now be able to track each list item correctly.
-
-<PostImage src='/images/keys-7.gif' alt='Correct state using ids as keys' width='100px' />
+Hint: you'll need to find (or create) a unique identifier for each product, and assign that as the
+`<Product />` key.

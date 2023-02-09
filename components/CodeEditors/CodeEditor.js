@@ -5,7 +5,9 @@ import ClientOnly from '../ClientOnly'
 function CodeEditor({ files }) {
   return (
     <ClientOnly>
-      <Sandpack template='react' theme={nightOwl} files={files} />
+      <div className='my-8 lg:mx-[-32px]'>
+        <Sandpack template='react' theme={nightOwl} files={files} />
+      </div>
     </ClientOnly>
   )
 }
