@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://matthewgould.dev
+
+# Sitemaps
+Sitemap: https://matthewgould.dev/sitemap.xml
