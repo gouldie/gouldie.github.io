@@ -3,8 +3,8 @@ slug: keys-in-react
 title: 'Keys in React'
 subtitle: Why using an index is sometimes not enough
 description:
-  What are keys in React? What is their purpose, why are they important and why using an index is
-  sometimes not enough.
+  Why do we need to provide a key prop anyway? What happens if we don't? When is it a bad idea to
+  simply use the index?
 ---
 
 # Keys in React
@@ -16,7 +16,7 @@ Warning: Each child in a list should have a unique "key" prop.
 ```
 
 If you're familiar with React, you've probably come across this warning before. It occurs when
-attempting to render a list without providing a key to each list item.
+attempting to render a list using `map` without providing a key to each list item.
 
 So, provide a key, and the warning disappears. Problem solved? Not always.
 
@@ -28,8 +28,8 @@ It's about optimization.
 
 Due to
 React's&nbsp;<a href='https://reactjs.org/docs/reconciliation.html#the-diffing-algorithm' target='_blank'>
-diffing algorithm</a>&nbsp;, it cannot efficiently determine when a list order changes, or when
-items are added or removed.
+diffing algorithm</a>, it cannot efficiently determine when a list order changes, or when items are
+added or removed.
 
 Take this example of a list that you are asking React to render using the `map` function:
 
@@ -75,6 +75,8 @@ Let's say the user deletes the 🥚 this time.
 
 React knows the second element was deleted, because the key is now gone. As a result React can
 perform the re-render much more efficiently.
+
+If you don't provide a key, React will take the index by default.
 
 ### Why using an index is sometimes not enough
 
