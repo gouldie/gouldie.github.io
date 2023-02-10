@@ -1,10 +1,12 @@
 import Link from 'next/link'
-import { Layout } from '@/components'
+import { Layout, SEO } from '@/components'
 import { getPosts } from '@/utils/posts'
 
 export default function Posts({ postMetadata }) {
   return (
     <Layout>
+      <SEO url='/posts' title='Posts | Matthew Gould' />
+
       <h1 className='text-4xl mb-4'>Posts</h1>
       <hr className='w-24 mb-12 border-gray-400' />
 

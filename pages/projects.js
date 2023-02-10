@@ -1,4 +1,4 @@
-import { Layout } from '@/components'
+import { SEO, Layout } from '@/components'
 
 const projects = [
   {
@@ -39,6 +39,12 @@ const projects = [
 export default function Projects() {
   return (
     <Layout>
+      <SEO
+        url='/projects'
+        title='Projects | Matthew Gould'
+        description="Some of the latest projects I've worked on, or currently working on."
+      />
+
       <h1 className='text-4xl mb-4'>Projects</h1>
 
       <hr className='w-24 mb-12 border-gray-400' />

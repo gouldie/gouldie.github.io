@@ -1,8 +1,10 @@
-import { Layout } from '@/components'
+import { Layout, SEO } from '@/components'
 
 export default function PrivacyPolicy() {
   return (
     <Layout>
+      <SEO />
+
       <div className='pt-10'>
         <h1>Privacy Policy</h1>
         <p>

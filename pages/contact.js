@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Layout } from '@/components'
+import { Layout, SEO } from '@/components'
 
 const initialState = { name: '', email: '', message: '' }
 
@@ -54,6 +54,8 @@ export default function Contact() {
 
   return (
     <Layout>
+      <SEO url='/contact' title='Contact | Matthew Gould' />
+
       <h1 className='text-4xl mb-4'>Contact</h1>
 
       <hr className='w-24 mb-12 border-gray-400' />

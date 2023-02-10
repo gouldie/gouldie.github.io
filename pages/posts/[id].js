@@ -1,13 +1,12 @@
-import Head from 'next/head'
 import Link from 'next/link'
 import matter from 'gray-matter'
 import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import { remarkCodeHike } from '@code-hike/mdx'
 import { CH } from '@code-hike/mdx/components'
-import { Layout, PostImage, CodeEditors } from '@/components'
-import { getFileData, getPaths } from '@/utils/posts'
 import theme from '@/themes/night-owl'
+import { Layout, PostImage, CodeEditors, SEO } from '@/components'
+import { getFileData, getPaths } from '@/utils/posts'
 
 import '@code-hike/mdx/dist/index.css'
 
@@ -28,12 +27,12 @@ const components = {
 const Post = ({ mdxSource, frontMatter }) => {
   return (
     <Layout>
-      <Head>
-        <title>{frontMatter.title}</title>
-        <meta name='description' content={frontMatter.description} />
-        <meta name='og:description' content={frontMatter.description} />
-        <meta name='twitter:description' content={frontMatter.description} />
-      </Head>
+      <SEO
+        url={`/posts/${frontMatter.slug}`}
+        title={frontMatter.title}
+        description={frontMatter.description}
+      />
+
       <div className='max-w-[50rem] mx-auto'>
         <div className='mb-6'>
           <Link href='/posts'>← Back to posts</Link>

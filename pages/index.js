@@ -1,11 +1,13 @@
 import { useTheme } from 'next-themes'
-import { Layout, ClientOnly } from '@/components'
+import { SEO, Layout, ClientOnly } from '@/components'
 
 export default function Home() {
   const { resolvedTheme } = useTheme()
 
   return (
     <Layout>
+      <SEO url='/' />
+
       <div className='mt-8 sm:mt-14 md:mt-28 max-w-4xl'>
         <h1 className='text-4xl mb-4'>Hi, I'm Matt.</h1>
         <h1 className='text-4xl mb-4 leading-tight'>
