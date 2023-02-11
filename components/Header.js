@@ -78,7 +78,7 @@ export default function Header() {
             } justify-between items-center w-full md:flex md:w-auto`}
             id='mobile-menu-4'
           >
-            <div className='flex flex-col mt-6 md:mt-4 md:flex-row md:space-x-8 md:mt-0 md:font-medium'>
+            <div className='flex flex-col mt-6 md:mt-4 md:flex-row md:space-x-8 md:mt-0'>
               <NavItem href='/' label='Home' onClick={closeMobileMenu} />
               <NavItem href='/projects' label='Projects' onClick={closeMobileMenu} />
               <NavItem href='/posts' label='Posts' onClick={closeMobileMenu} />
