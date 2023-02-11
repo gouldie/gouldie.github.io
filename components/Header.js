@@ -144,7 +144,8 @@ function ThemeToggle() {
   }
 
   return (
-    <div>
+    // justify-center looks better to the eye
+    <div className='w-[80px] flex justify-center'>
       <input
         type='checkbox'
         className='checkbox'
