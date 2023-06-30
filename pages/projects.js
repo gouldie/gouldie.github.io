@@ -22,7 +22,7 @@ const projects = [
     description:
       'A clone of reddit in the style of Vuetify. Create, read, update, and delete posts. Vote and comment.',
     tech: ['VueJS', 'SASS', 'NodeJS', 'Express', 'MongoDB', 'JWT'],
-    url: 'https://redditmg.herokuapp.com'
+    url: 'https://reddit-5j96.onrender.com/'
   },
   {
     name: 'Collector',
