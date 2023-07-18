@@ -25,14 +25,14 @@ export default function Header() {
                 <img
                   className='w-full'
                   src={`/logo-${resolvedTheme === 'dark' ? 'dark' : 'light'}.png`}
-                  alt=''
+                  alt='navigate to home'
                 />
               </ClientOnly>
             </div>
           </Link>
 
           <div className='md:hidden flex items-center'>
-            <ThemeToggle />
+            <ThemeToggle id='mobile-theme-toggle' />
 
             <button
               data-collapse-toggle='mobile-menu-4'
@@ -85,7 +85,7 @@ export default function Header() {
           </div>
 
           <div className='hidden md:block'>
-            <ThemeToggle />
+            <ThemeToggle id='desktop-theme-toggle' />
           </div>
         </div>
       </nav>
@@ -127,7 +127,7 @@ NavItem.propTypes = {
 }
 
 // https://codepen.io/PaulinaSurazynska/pen/bGVpBOb
-function ThemeToggle() {
+function ThemeToggle({ id }) {
   const { resolvedTheme, setTheme } = useTheme()
 
   const toggleTheme = () => {
@@ -146,7 +146,7 @@ function ThemeToggle() {
         <input
           type='checkbox'
           className='checkbox'
-          id='checkbox'
+          id={id}
           onChange={toggleTheme}
           checked={resolvedTheme === 'dark'}
           aria-label={`Activate ${resolvedTheme === 'dark' ? 'dark' : 'light'} mode`}
