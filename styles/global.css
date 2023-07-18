@@ -16,7 +16,7 @@ body {
 }
 
 .my-container {
-  @apply max-w-7xl mx-auto px-8;
+  @apply max-w-7xl mx-auto px-6 sm:px-8;
 }
 
 .checkbox {

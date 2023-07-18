@@ -5,7 +5,7 @@ import { useTheme } from 'next-themes'
 import PropTypes from 'prop-types'
 import { ClientOnly } from '@/components'
 
-const imagesToPreload = ['bfo', 'bfg', 'reddit']
+const imagesToPreload = ['bfo', 'bfg', 'reddit', 'collector']
 
 export default function Header() {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
@@ -32,9 +32,7 @@ export default function Header() {
           </Link>
 
           <div className='md:hidden flex items-center'>
-            <ClientOnly>
-              <ThemeToggle />
-            </ClientOnly>
+            <ThemeToggle />
 
             <button
               data-collapse-toggle='mobile-menu-4'
@@ -87,9 +85,7 @@ export default function Header() {
           </div>
 
           <div className='hidden md:block'>
-            <ClientOnly>
-              <ThemeToggle />
-            </ClientOnly>
+            <ThemeToggle />
           </div>
         </div>
       </nav>
@@ -146,19 +142,21 @@ function ThemeToggle() {
   return (
     // justify-center looks better to the eye
     <div className='w-[80px] flex justify-center'>
-      <input
-        type='checkbox'
-        className='checkbox'
-        id='checkbox'
-        onChange={toggleTheme}
-        checked={resolvedTheme === 'dark'}
-        aria-label={`Activate ${resolvedTheme === 'dark' ? 'dark' : 'light'} mode`}
-      />
-      <label htmlFor='checkbox' className='label cursor-pointer' aria-label='test'>
-        <img className='sun' src='/sun.svg' alt='' />
-        <img className='moon' src='/moon.svg' alt='' />
-        <div className='ball' />
-      </label>
+      <ClientOnly>
+        <input
+          type='checkbox'
+          className='checkbox'
+          id='checkbox'
+          onChange={toggleTheme}
+          checked={resolvedTheme === 'dark'}
+          aria-label={`Activate ${resolvedTheme === 'dark' ? 'dark' : 'light'} mode`}
+        />
+        <label htmlFor='checkbox' className='label cursor-pointer' aria-label='test'>
+          <img className='sun' src='/sun.svg' alt='' />
+          <img className='moon' src='/moon.svg' alt='' />
+          <div className='ball' />
+        </label>
+      </ClientOnly>
     </div>
   )
 }
