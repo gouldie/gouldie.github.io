@@ -2,6 +2,7 @@
 module.exports = {
   siteUrl: 'https://matthewgould.dev',
   generateIndexSitemap: false,
-  generateRobotsTxt: true // (optional)
+  generateRobotsTxt: true, // (optional)
+  exclude: ['/quizapp/privacy-policy']
   // ...other options
 }
