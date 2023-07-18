@@ -1,4 +1,4 @@
-/* Used by: keys-in-react */
+/* Used by: demystifying-react-keys */
 import CodeEditor from './CodeEditor'
 
 const initialProductsJSONv1 = `[
