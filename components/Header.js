@@ -151,7 +151,7 @@ function ThemeToggle({ id }) {
           checked={resolvedTheme === 'dark'}
           aria-label={`Activate ${resolvedTheme === 'dark' ? 'dark' : 'light'} mode`}
         />
-        <label htmlFor='checkbox' className='label cursor-pointer' aria-label='test'>
+        <label htmlFor={id} className='label cursor-pointer' aria-label='test'>
           <img className='sun' src='/sun.svg' alt='' />
           <img className='moon' src='/moon.svg' alt='' />
           <div className='ball' />
