@@ -1,8 +1,16 @@
-import '@/styles/global.css'
+// eslint-disable-next-line camelcase
+import { Fira_Sans } from '@next/font/google'
 import PropTypes from 'prop-types'
 import { ThemeProvider } from 'next-themes'
 import { Header } from '@/components'
 import { useRouter } from 'next/router'
+
+import '@/styles/global.css'
+
+const firaSans = Fira_Sans({
+  subsets: ['latin'],
+  weight: ['200', '300', '400', '500', '600', '700']
+})
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
@@ -11,8 +19,10 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <ThemeProvider attribute='class'>
-      {!router.pathname.includes('quizapp') && !is404 && <Header />}
-      <Component {...pageProps} />
+      <div className={firaSans.className}>
+        {!router.pathname.includes('quizapp') && !is404 && <Header />}
+        <Component {...pageProps} />
+      </div>
     </ThemeProvider>
   )
 }
