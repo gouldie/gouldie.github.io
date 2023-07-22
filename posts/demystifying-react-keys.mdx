@@ -16,20 +16,34 @@ Warning: Each child in a list should have a unique "key" prop.
 ```
 
 If you're familiar with React, you've probably come across this warning before. It occurs when
-attempting to render a list using `map` without providing a key to each list item.
+attempting to render a list dynamically without providing a key to each list item.
 
 So, provide a key, and the warning disappears. Problem solved? Not always.
 
-There can be some confusion around why the keys are required and what their values should be.
+In order to fully understand why, it's import to first understand
+React's&nbsp;<a href='https://legacy.reactjs.org/docs/reconciliation.html' target='_blank'>Reconciliation</a>
+process.
+
+### Reconciliation
+
+Reconciliation is the term used to describe the process in which React updates the browser DOM
+whenever state or props change.
+
+In this process, React will re-render, and then compare the previous component tree to the current
+component tree (known as diffing) to determine the changes that need to be applied to the browser
+DOM.
+
+While diffing, React uses element type and order to determine whether an element (or component)
+needs to be updated. If an element needs to be updated, it will be created (mounted) from scratch.
 
 ### Why are keys required?
 
-It's about optimization.
+Without keys, React can't track the position of an element from one render to the next.
 
-Due to
-React's&nbsp;<a href='https://reactjs.org/docs/reconciliation.html#the-diffing-algorithm' target='_blank'>
-diffing algorithm</a>, it cannot efficiently determine when a list order changes, or when items are
-added or removed.
+This is most common with lists - user applies a filter, list order changes.
+
+React would be forced to re-create all list items on each render, which is not only computationally
+expensive, but would also reset any underlying state.
 
 Take this example of a list that you are asking React to render using the `map` function:
 
@@ -80,7 +94,7 @@ If you don't provide a key, React will take the index by default.
 
 ### Why using an index is sometimes not enough
 
-Using a key as an index _will_ suppress Reacts warning, however, it can produce unintended
+Using an index as a key _will_ suppress Reacts warning, however, it can produce unintended
 side-effects if the list can change (re-order, add or remove elements).
 
 Using the same example, with an index as a key:
