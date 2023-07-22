@@ -35,7 +35,9 @@ const Post = ({ mdxSource, frontMatter }) => {
 
       <div className='max-w-[50rem] mx-auto'>
         <div className='mb-6'>
-          <Link href='/posts'>← Back to posts</Link>
+          <Link href='/posts' className='unstyled-a'>
+            ← Back to posts
+          </Link>
         </div>
         <MDXRemote {...mdxSource} components={components} />
       </div>

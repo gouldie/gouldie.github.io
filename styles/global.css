@@ -14,6 +14,14 @@ body {
   transition: 0.2s linear;
 }
 
+a {
+  @apply text-lightlink dark:text-darklink;
+}
+
+.unstyled-a {
+  @apply text-black dark:text-white;
+}
+
 .my-container {
   @apply max-w-7xl mx-auto px-6 sm:px-8;
 }
