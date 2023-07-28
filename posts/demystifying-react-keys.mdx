@@ -33,14 +33,15 @@ In this process, React will re-render, and then compare the previous component t
 component tree (known as diffing) to determine the changes that need to be applied to the browser
 DOM.
 
-While diffing, React uses element type and order to determine whether an element (or component)
-needs to be updated. If an element needs to be updated, it will be created (mounted) from scratch.
+While diffing, React uses element (or component) type and order to determine whether an element
+needs to be re-created. If the element type and order does not match (and there is no key), the
+element will be re-created.
 
 ### Why are keys required?
 
 Without keys, React can't track the position of an element from one render to the next.
 
-This is most common with lists - user applies a filter, list order changes.
+Elements changing position is most common with lists - user applies a filter, list order changes.
 
 React would be forced to re-create all list items on each render, which is not only computationally
 expensive, but would also reset any underlying state.
