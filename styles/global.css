@@ -9,6 +9,11 @@ body {
 }
 
 #__next {
+  min-height: 100vh;
+  transition: 0.2s linear;
+}
+
+.bg {
   @apply bg-lightbg dark:bg-darkbg text-black dark:text-white;
   min-height: 100vh;
   transition: 0.2s linear;

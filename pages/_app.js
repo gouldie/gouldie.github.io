@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <ThemeProvider attribute='class'>
-      <div className={firaSans.className}>
+      <div className={`${firaSans.className} bg`}>
         {!router.pathname.includes('quizapp') && !is404 && <Header />}
         <Component {...pageProps} />
       </div>
